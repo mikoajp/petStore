@@ -11,6 +11,7 @@ class PetControllerTest extends TestCase
 {
     use RefreshDatabase;
 
+
     public function test_index_shows_error_when_service_fails()
     {
         $mock = Mockery::mock(PetService::class);
@@ -37,5 +38,4 @@ class PetControllerTest extends TestCase
         $response->assertStatus(302);
         $response->assertSessionHasErrors(['error' => 'Failed to add pet.']);
     }
-
 }
